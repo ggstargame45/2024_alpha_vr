@@ -11,7 +11,6 @@ public class Shining : MonoBehaviour
     private void Awake()
     {
         target = GetComponent<Renderer>();
-        On();
     }
 
     public void On()
