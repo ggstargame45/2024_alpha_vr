@@ -8,7 +8,7 @@ public class SceneManager : MonoBehaviour
 {
     public List<GameObject> gameObjects;
 
-    private void Awake()
+    public void Call()
     {
         if(gameObjects.Count == 0)
         {

@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class StampWorkManager : MonoBehaviour
 {
     public List<UnityEvent> events;
-    int index = 0;
+    public UnityEvent endEvents;
+    private int index = 0;
 
     private void Awake()
     {
@@ -19,7 +20,8 @@ public class StampWorkManager : MonoBehaviour
 
     public void Next()
     {
-        if (events[index] == null)
+        Debug.Log(index);
+        if (index >= events.Count)
         {
             End();
             return;
@@ -31,6 +33,6 @@ public class StampWorkManager : MonoBehaviour
 
     private void End()
     {
-
+        endEvents?.Invoke();
     }
 }

@@ -6,19 +6,20 @@ public class Stamp : MonoBehaviour
 {
     private StampSign stampSign;
     public float distance = 0.2f;
+    public LayerMask canStampLayer;
 
     public void Call()
     {
-        if (Physics.Raycast(transform.position, transform.up * -1, out RaycastHit hitInfo, distance))
+        if(Physics.Raycast(transform.position, transform.up * -1, out RaycastHit hitInfo, distance, canStampLayer))
         {
-            stampSign = hitInfo.transform.GetComponent<StampSign>();
+            stampSign = hitInfo.transform.Find("Stamp Sign").transform.GetComponent<StampSign>();
+            if (stampSign.enabled)
+                stampSign?.Stamped();
         }
         else
         {
             stampSign = null;
         }
-
-        stampSign?.Stamped();
     }
 
     private void Update()

@@ -26,7 +26,7 @@ public class Shining : MonoBehaviour
 
     private IEnumerator Process()
     {
-        var wfef = new WaitForEndOfFrame();
+        var wff = new WaitForEndOfFrame();
         if(target == null)
         {
             yield break;
@@ -39,7 +39,7 @@ public class Shining : MonoBehaviour
             target.material.SetColor("_EmissionColor", color);
             angle += 0.1f;
             angle %= 360;
-            yield return wfef;
+            yield return wff;
         }
     }
 
